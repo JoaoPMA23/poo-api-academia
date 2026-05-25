@@ -3,7 +3,7 @@
 -- =============================================
 
 -- Planos
-INSERT INTO tb_plano (nome, descricao, duracao_meses, valor, ativo)
+INSERT IGNORE INTO tb_plano (nome, descricao, duracao_meses, valor, ativo)
 VALUES
 ('Mensal', 'Acesso livre por 1 mês', 1, 89.90, true),
 ('Trimestral', 'Acesso livre por 3 meses', 3, 239.90, true),
