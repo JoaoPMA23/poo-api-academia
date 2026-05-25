@@ -93,18 +93,32 @@ academia-api/
 ### Pré-requisitos
 - Java 17+
 - Maven 3.6+
+- Docker + Docker Compose
 
-### Executar
+### 1. Subir o banco de dados (MySQL via Docker)
 ```bash
 cd academia-api
+docker-compose up -d
+```
+
+Aguarde ~20 segundos até o MySQL estar pronto. Para verificar:
+```bash
+docker-compose ps
+```
+
+### 2. Rodar a aplicação
+```bash
 mvn spring-boot:run
 ```
 
 A API estará disponível em: `http://localhost:8080`
 
-Console H2 (banco em memória): `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:mem:academiadb`
-- User: `sa` | Senha: (vazio)
+### 3. Parar o banco quando terminar
+```bash
+docker-compose down
+```
+
+> Os dados ficam salvos no volume `academia_data`. Para resetar tudo: `docker-compose down -v`
 
 ---
 
